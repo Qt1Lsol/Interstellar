@@ -1,14 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity, Button } from 'react-native';
-import React, { useState } from "react";
 import { Ionicons } from '@expo/vector-icons';
 import Constants from 'expo-constants';
 
 export default function App() {
-
-  const [count, setCount] = useState(0);
-  const onPress = () => setCount(prevCount => prevCount + 1);
-
   return (
     <View style={styles.container}>
 
@@ -30,48 +25,44 @@ export default function App() {
 
         <View style={styles.bandeauFilm}>
 
+
           <Image
             style={styles.imgFilmStyle}
             source={require("./assets/film.jpg")}
             resizeMode="contain"
           />
 
-          <Text style={styles.normalStyle}>Loremgreg reggregregregregg regrejgreigjr eigjreigjerigjrei gjre igjr  eigjerigje  rigjreigjer io gjigjerigjerio gjige rjoiej giorejg jgrigjreiogjeri jgi jierjreiogjerijg</Text>
+          <View style={styles.droiteStyle}>
+            <Text style={styles.normalStyle}>jerigjerio gjige rjoiej giorejg jgrigjreiogjeri jgi jierjreiogjerijg</Text>
 
+            <TouchableOpacity
+              style={styles.button}
+              activeOpacity={0.8}
+              onPress={() => {
+                console.log("pressed !");
+              }}
+            >
+              <Text style={styles.normalStyle}>+ ADD TO WATCHLIST</Text>
+            </TouchableOpacity>
+          </View>
 
-          {/* <TouchableOpacity
-          style={styles.button}
-          onPress={onPress}
-        >
-          <Text style={styles.normalStyle}>+ Add to watchlist</Text>
-        </TouchableOpacity> */}
-
-
-          <Button
-            onPress={onPress}
-            style={styles.button}
-            title="Learn More"
-            accessibilityLabel="Learn more about this purple button"
-          />
-
-          <Text style={styles.normalStyle}>Count: {count}</Text>
 
         </View>
 
         <View style={styles.bandeauRateStyle}>
           <View style={styles.insideRateStyle}>
             <Ionicons name="star" size={32} color="yellow" />
-            <Text style={styles.normalStyle}><Text style={styles.boldStyle}>8.6</Text>/10</Text>
-            <Text style={styles.normalStyle}>1.1M</Text>
+            <Text style={styles.smallStyle}><Text style={styles.boldStyle}>8.6</Text>/10</Text>
+            <Text style={styles.littleStyle}>1.1M</Text>
           </View>
           <View style={styles.insideRateStyle}>
             <Ionicons name="star" size={32} color="yellow" />
-            <Text style={styles.normalStyle}>Rate this</Text>
+            <Text style={styles.smallStyle}>Rate this</Text>
           </View>
           <View style={styles.insideRateStyle}>
             <Ionicons name="square" size={32} color="green" />
-            <Text style={styles.normalStyle}>Metascore</Text>
-            <Text style={styles.normalStyle}>46 critics reviews</Text>
+            <Text style={styles.smallStyle}>Metascore</Text>
+            <Text style={styles.littleStyle}>46 critics reviews</Text>
           </View>
 
         </View>
@@ -173,8 +164,17 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    backgroundColor: "#DDDDDD",
+    backgroundColor: "blue",
+    height: 50,
+    marginTop: 10,
+    width: "90%",
+    alignItems: "center",
     padding: 10,
+    borderRadius: 10,
+  },
+
+  droiteStyle: {
+    flex: 1,
   },
 
   imgStyle: {
@@ -191,7 +191,10 @@ const styles = StyleSheet.create({
   },
 
   bandeauFilm: {
+    flex: 1,
     flexDirection: "row",
+    justifyContent: 'space-around',
+    width: "100%",
   },
 
   bandeauStyle: {
@@ -201,14 +204,13 @@ const styles = StyleSheet.create({
 
   bandeauRateStyle: {
     backgroundColor: '#0E0E0E',
-    height: 70,
+    height: 80,
     marginTop: 10,
     flexDirection: "row",
     flex: 1,
-    justifyContent: 'space-around',
-    paddingTop: 5,
-    marginBottom: 20,
-
+    // justifyContent: 'space-around',
+    paddingTop: 2,
+    marginBottom: 5,
   },
 
   bandeauDirectorStyle: {
@@ -221,7 +223,6 @@ const styles = StyleSheet.create({
   },
 
   titleStyle: {
-    marginTop: 10,
     fontSize: 30,
     color: "lightgrey",
   },
@@ -229,6 +230,7 @@ const styles = StyleSheet.create({
   insideRateStyle: {
     alignItems: 'center',
     flex: 1,
+    justifyContent: 'space-around',
   },
 
   normalStyle: {
@@ -236,6 +238,20 @@ const styles = StyleSheet.create({
     color: "grey",
     margin: 5,
   },
+
+  smallStyle: {
+    fontSize: 16,
+    color: "grey",
+    margin: 5,
+  },
+
+  littleStyle: {
+    fontSize: 15,
+    color: "grey",
+    margin: 5,
+  },
+
+
   boldStyle: {
     fontWeight: "bold",
     fontSize: 20,

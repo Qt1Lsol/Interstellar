@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity, Button } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
 import Constants from 'expo-constants';
 
 export default function App() {
@@ -42,7 +43,7 @@ export default function App() {
                 console.log("pressed !");
               }}
             >
-              <Text style={styles.normalStyle}>+ ADD TO WATCHLIST</Text>
+              <Text style={styles.textButtonStyle}>+ ADD TO WATCHLIST</Text>
             </TouchableOpacity>
           </View>
 
@@ -51,18 +52,18 @@ export default function App() {
 
         <View style={styles.bandeauRateStyle}>
           <View style={styles.insideRateStyle}>
-            <Ionicons name="star" size={32} color="yellow" />
-            <Text style={styles.smallStyle}><Text style={styles.boldStyle}>8.6</Text>/10</Text>
-            <Text style={styles.littleStyle}>1.1M</Text>
+            <FontAwesome style={styles.icon} name="star" size={32} color="yellow" />
+            <Text style={[styles.smallStyle, styles.spaceStyle]} ><Text style={styles.boldStyle}>8.6</Text>/10</Text>
+            <Text style={[styles.smallStyle, styles.spaceStyle]}>1.1M</Text>
           </View>
           <View style={styles.insideRateStyle}>
-            <Ionicons name="star" size={32} color="yellow" />
-            <Text style={styles.smallStyle}>Rate this</Text>
+            <FontAwesome style={styles.icon} name="star-o" size={32} color="yellow" />
+            <Text style={[styles.smallStyle, styles.spaceStyle]}>Rate this</Text>
           </View>
           <View style={styles.insideRateStyle}>
-            <Ionicons name="square" size={32} color="green" />
-            <Text style={styles.smallStyle}>Metascore</Text>
-            <Text style={styles.littleStyle}>46 critics reviews</Text>
+            <FontAwesome style={styles.icon} name="square" size={32} color="green" />
+            <Text style={[styles.smallStyle, styles.spaceStyle]}>Metascore</Text>
+            <Text style={[styles.smallStyle, styles.spaceStyle]}>46 critics reviews</Text>
           </View>
 
         </View>
@@ -79,37 +80,31 @@ export default function App() {
             <Image
               style={styles.imgStyle}
               source={require("./assets/jessica.jpg")}
-              resizeMode="contain"
             />
 
             <Image
               style={styles.imgStyle}
               source={require("./assets/mackenzie.jpg")}
-              resizeMode="contain"
             />
 
             <Image
               style={styles.imgStyle}
               source={require("./assets/mackenzie.jpg")}
-              resizeMode="contain"
             />
 
             <Image
               style={styles.imgStyle}
               source={require("./assets/mackenzie.jpg")}
-              resizeMode="contain"
             />
 
             <Image
               style={styles.imgStyle}
               source={require("./assets/mackenzie.jpg")}
-              resizeMode="contain"
             />
 
             <Image
               style={styles.imgStyle}
               source={require("./assets/mackenzie.jpg")}
-              resizeMode="contain"
             />
 
           </View>
@@ -150,7 +145,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     height: 50,
     width: "100%",
-    backgroundColor: 'dimgray',
+    backgroundColor: 'rgb(57,57,57)',
     alignItems: 'flex-start',
     justifyContent: 'center',
   },
@@ -164,13 +159,21 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    backgroundColor: "blue",
+    backgroundColor: "rgb(2,119,189)",
     height: 50,
     marginTop: 10,
     width: "90%",
     alignItems: "center",
     padding: 10,
     borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  textButtonStyle: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 18,
   },
 
   droiteStyle: {
@@ -180,7 +183,8 @@ const styles = StyleSheet.create({
   imgStyle: {
     height: 150,
     width: 100,
-    margin: 1,
+    margin: 5,
+    resizeMode: "cover",
   },
 
   imgFilmStyle: {
@@ -204,12 +208,14 @@ const styles = StyleSheet.create({
 
   bandeauRateStyle: {
     backgroundColor: '#0E0E0E',
-    height: 80,
-    marginTop: 10,
+    // backgroundColor: 'pink',
+    // height:80,
+    marginTop: 5,
     flexDirection: "row",
-    flex: 1,
-    // justifyContent: 'space-around',
-    paddingTop: 2,
+    // flex: "block",
+    justifyContent: 'space-between',
+    alignItems: "flex-start",
+    paddingTop: 1,
     marginBottom: 5,
   },
 
@@ -218,8 +224,9 @@ const styles = StyleSheet.create({
   },
 
   logoStyle: {
-    height: 60,
+    height: "80%",
     width: 60,
+    marginLeft: 10,
   },
 
   titleStyle: {
@@ -230,8 +237,17 @@ const styles = StyleSheet.create({
   insideRateStyle: {
     alignItems: 'center',
     flex: 1,
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
+    // justifyContent: 'flex-start',
+    paddingTop: 2,
+    // height: 30,
   },
+
+  // spaceStyle: {
+  //   alignItems: 'flex-start',
+  //   justifyContent: 'flex-start',
+  //   flex: 1,
+  // },
 
   normalStyle: {
     fontSize: 18,
